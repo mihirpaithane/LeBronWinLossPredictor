@@ -1,0 +1,9 @@
+form { color: #fff; font-family: 'Times New Roman'; font-size: 20px; font-weight: normal; line-height: 60px; margin: 10px 0 20px; text-transform: uppercase; text-shadow: 2px 2px 0 #000, margin: 10px 0 24px; text-align: center; }
+
+body { background-color: grey; color: #fff; font-family: 'Helvetica Neue', cursive; font-size: 65px; font-weight: normal; line-height: 60px; margin: 10px 0 20px; text-transform: uppercase; text-shadow: 2px 2px 0 #000, margin: 10px 0 24px; text-align: center; }
+
+h1 { color: #fff; font-family: 'Helvetica Neue', cursive; font-size: 65px; font-weight: normal; line-height: 60px; margin: 10px 0 20px; text-transform: uppercase; text-shadow: 2px 2px 0 #000, margin: 10px 0 24px; text-align: center; }
+
+p { color: black; font-family: 'Orienta', sans-serif; font-size: 42px; line-height: 24px; margin: 0 0 24px; text-align: center; }
+
+p:hover { color: orange; text-decoration: blink; }

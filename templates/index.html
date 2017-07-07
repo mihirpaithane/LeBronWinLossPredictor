@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+	</head>
+<body>
+	<h1>Lebron Win/Loss Predictor Using Neural Networks</h1>
+	<form id="stats">
+		Points: <input type="number" name="points" value=0> <br>
+		Rebounds: <input type="number" name="rebounds" value=0> <br>
+		Assists: <input type="number" name="assists" value=0> <br>
+		Steals: <input type="number" name="steals" value=0> <br>
+		Blocks: <input type="number" name="blocks" value=0> <br>
+		Turnovers: <input type="number" name="turnovers" value=0> <br>
+		Fouls: <input type="number" name="fouls" value=0> <br>
+
+	</form>
+
+	<p id="demo"></p>
+
+	<button onclick = "predict()">Try it</button>
+
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	
+	<script>
+		function predict() {
+			var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+			var stats = document.getElementById("stats");
+			var inputStats = new Array(stats[0].value, stats[1].value, stats[2].value, stats[3].value, stats[4].value, stats[5].value, stats[6].value);
+
+			inputStats = JSON.stringify(inputStats)
+
+	   		$.ajax({
+	   			type: "POST",
+	   			url: $SCRIPT_ROOT + "/predict/",
+	   			data: inputStats,
+	   			success: function(data){
+	   				if (data == "[1]") {
+	   					document.getElementById("demo").innerHTML = "WIN"
+	   				}
+	   				if (data == "[0]") {
+	   					document.getElementById("demo").innerHTML = 
+	   					"LOSS"
+	   				}
+	   				
+	   			}
+	   		});
+		}
+	</script>
+</body>
+</html>
